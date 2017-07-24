@@ -1,0 +1,22 @@
+{
+    "name": "plusser/yii2-settings",
+    "description": "db stored settings",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "plusser",
+            "email": "plusser@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "plusser/yii2-crud": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "settings\\": ""
+        }
+    }
+}
