@@ -22,10 +22,10 @@ class HTMLField extends Widget
             'clientOptions' => [
                 'plugins' => [
                     'advlist autolink lists link charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
+                    'searchreplace visualblocks code fullscreen textcolor',
                     'insertdatetime media table contextmenu paste image',
                 ],
-                'toolbar' => 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+                'toolbar' => 'undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
                 'file_picker_callback' => \alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl(['elfinder/tinymce'])),
 
             ],
