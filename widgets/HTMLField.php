@@ -5,7 +5,7 @@ namespace settings\widgets;
 use Yii;
 use yii\bootstrap\Widget;
 use dosamigos\tinymce\TinyMce;
-use fileManager\Module as FileManagerModule
+use fileManager\Module as FileManagerModule;
 
 class HTMLField extends Widget
 {
