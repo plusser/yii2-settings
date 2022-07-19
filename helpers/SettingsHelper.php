@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace settings\helpers;
 
@@ -8,7 +8,7 @@ use yii\web\NotFoundHttpException;
 class SettingsHelper
 {
 
-    public static function get($id, $defaultValue = NULL)
+    public static function get($id, $defaultValue = null)
     {
         $result = $defaultValue;
 

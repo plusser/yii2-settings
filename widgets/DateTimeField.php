@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 namespace settings\widgets;
 
-use yii\bootstrap\Widget;
-use dosamigos\datetimepicker\DateTimePicker;
+use yii\bootstrap4\Widget;
+use kartik\datetime\DateTimePicker;
 
 class DateTimeField extends Widget
 {
@@ -15,15 +15,14 @@ class DateTimeField extends Widget
 
     public function run()
     {
-        return $this->form->field($this->model, $this->attribute)->widget(DateTimePicker::className(), [
-            'language' => 'ru',
-            'size' => 'ms',
-            'template' => '{input}',
-            'pickButtonIcon' => 'glyphicon glyphicon-time',
-            'clientOptions' => [
-                'autoclose' => TRUE,
-                'format' => 'yyyy-mm-dd HH:ii:ss',
-                'todayBtn' => TRUE,
+        $this->view->registerLinkTag(['rel' => 'stylesheet', 'href' => 'https://use.fontawesome.com/releases/v5.3.1/css/all.css'], 'fontawesome.stylesheet');
+
+        return $this->form->field($this->model, $this->attribute)->widget(DateTimePicker::class, [
+            'bsVersion'     => 4,
+            'language'      => 'ru',
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'dd-mm-yyyy hh:ii:00',
             ],
         ]);
     }

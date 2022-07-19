@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace settings\widgets;
 
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 use kartik\switchinput\SwitchInput;
 
 class SwitchField extends Widget
@@ -15,15 +15,17 @@ class SwitchField extends Widget
 
     public function run()
     {
-        return $this->form->field($this->model, $this->attribute)->widget(SwitchInput::className(), [
-            'type' => SwitchInput::CHECKBOX,
+        \Yii::$app->params['bsVersion'] = 4; // Fix of bootstrap version bug
+
+        return $this->form->field($this->model, $this->attribute)->widget(SwitchInput::class, [
+            'bsVersion'     => 4,
+            'type'          => SwitchInput::CHECKBOX,
             'pluginOptions' => [
-                'size' => 'large',
-                'onColor' => 'success',
-                'onText' => 'Да',
-                'offColor' => 'danger',
-                'offText' => 'Нет',
-            ]
+                'onColor'   => 'success',
+                'onText'    => 'Да',
+                'offColor'  => 'danger',
+                'offText'   => 'Нет',
+            ],
         ]);
     }
 

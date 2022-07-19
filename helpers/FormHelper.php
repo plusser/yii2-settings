@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace settings\helpers;
 
@@ -11,23 +11,23 @@ use settings\widgets\ArrayField;
 class FormHelper
 {
 
-    protected static function fieldWidgets()
+    protected static function fieldWidgets(): array
     {
         return [
-            Settings::TYPE_STRING => StringField::className(),
-            Settings::TYPE_TEXT => TextField::className(),
-            Settings::TYPE_HTML => HTMLField::className(),
-            Settings::TYPE_ARRAY => ArrayField::className(),
+            Settings::TYPE_STRING => StringField::class,
+            Settings::TYPE_TEXT => TextField::class,
+            Settings::TYPE_HTML => HTMLField::class,
+            Settings::TYPE_ARRAY => ArrayField::class,
         ];
     }
 
-    public static function getField($form, $model)
+    public static function getField($form, $model): string
     {
         $fieldWidgets = static::fieldWidgets();
         $widgetClass = isset($fieldWidgets[$model->type]) ? $fieldWidgets[$model->type] : $fieldWidgets[Settings::TYPE_STRING];
 
         return $widgetClass::widget([
-            'form' => $form,
+            'form'  => $form,
             'model' => $model,
         ]);
     }

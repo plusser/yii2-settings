@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -16,7 +16,7 @@ $model = new Settings;
 
     <h1><?php echo Html::encode($this->title); ?></h1>
 
-    <p><?php echo $this->context->getCreateButton(); ?></p>
+    <p><?php echo $this->context->getCreateButton('Создать настройку'); ?></p>
 
 <?php Pjax::begin(); ?>
 
@@ -30,8 +30,8 @@ $model = new Settings;
         'name',
         [
             'attribute' => 'type',
-            'filter' => $model->typeList,
-            'value' => function($data){
+            'filter'    => $model->typeList,
+            'value'     => function($data){
                 return $data->typeName;
             },
         ],

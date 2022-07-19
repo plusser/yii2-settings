@@ -1,8 +1,7 @@
-<?php 
+<?php
 
 namespace settings\models;
 
-use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use settings\models\Settings;
 
@@ -17,11 +16,6 @@ class SettingsSearch extends Settings
         ];
     }
 
-    public function scenarios()
-    {
-        return Model::scenarios();
-    }
-
     public function search($params)
     {
         $query = Settings::find();
@@ -32,11 +26,8 @@ class SettingsSearch extends Settings
         $this->load($params);
 
         if($this->validate()){
-            $query->andFilterWhere([
-                'type' => $this->type,
-            ]);
-
-            $query->andFilterWhere(['like', 'id', $this->id])
+            $query->andFilterWhere(['type' => $this->type])
+                ->andFilterWhere(['like', 'id', $this->id])
                 ->andFilterWhere(['like', 'name', $this->name])
                 ->andFilterWhere(['like', 'value', $this->value]);
         }

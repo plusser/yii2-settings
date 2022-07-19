@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
     <?php echo $model->isNewRecord ? $form->field($model, 'type')->dropDownList($model->typeList) : $model->getTypeWidget($this, $form); ?>
 
     <div class="form-group">
-        <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-success', ]); ?>
+        <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-success']); ?>
     </div>
 
     <?php ActiveForm::end(); ?>

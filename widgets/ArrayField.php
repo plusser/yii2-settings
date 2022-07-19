@@ -1,9 +1,8 @@
-<?php 
+<?php
 
 namespace settings\widgets;
 
-use yii\helpers\Html;
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 use yii\web\View;
 
 class ArrayField extends Widget
@@ -51,13 +50,13 @@ $(document).ready(function(){
 
         $result = '';
 
-        foreach(((array) $this->model->{$this->attribute} + ['empty-field' => '', ]) as $index => $item){
+        foreach(((array) $this->model->{$this->attribute} + ['empty-field' => '']) as $item){
             $this->model->{$this->attribute} = $item;
             $result .= $this->form->field($this->model, $this->attribute)->textInput([
                 'data-selector' => 'array-field',
-                'class' => 'form-control ' . (empty($this->model->{$this->attribute}) ? 'empty-field' : 'filled-field'),
-                'style' => 'margin-bottom: 10px;',
-                'id' => FALSE,
+                'class'         => 'form-control ' . (empty($this->model->{$this->attribute}) ? 'empty-field' : 'filled-field'),
+                'style'         => 'margin-bottom: 10px;',
+                'id'            => false,
             ]);
         }
 

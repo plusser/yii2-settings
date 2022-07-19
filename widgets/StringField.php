@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace settings\widgets;
 
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 
 class StringField extends Widget
 {
@@ -14,7 +14,7 @@ class StringField extends Widget
 
     public function run()
     {
-        return $this->form->field($this->model, $this->attribute)->textInput(['maxlength' => TRUE, ]);
+        return $this->form->field($this->model, $this->attribute)->textInput(['maxlength' => true]);
     }
 
 }

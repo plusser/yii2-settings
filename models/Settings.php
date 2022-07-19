@@ -42,53 +42,53 @@ class Settings extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Название',
+            'id'    => 'ID',
+            'name'  => 'Название',
             'value' => 'Значение',
-            'type' => 'Тип',
+            'type'  => 'Тип',
         ];
     }
 
     public function getTypeList()
     {
         return [
-            static::TYPE_STRING => 'Строка',
-            static::TYPE_TEXT => 'Текст',
-            static::TYPE_HTML => 'HTML',
-            static::TYPE_SWITCH => 'Чекбокс',
-            static::TYPE_DATE_TIME => 'Дата',
-            static::TYPE_ARRAY => 'Массив',
+            static::TYPE_STRING     => 'Строка',
+            static::TYPE_TEXT       => 'Текст',
+            static::TYPE_HTML       => 'HTML',
+            static::TYPE_SWITCH     => 'Чекбокс',
+            static::TYPE_DATE_TIME  => 'Дата',
+            static::TYPE_ARRAY      => 'Массив',
         ];
     }
 
-    public function getTypeName()
+    public function getTypeName(): string
     {
-        return isset($this->typeList[$this->type]) ? $this->typeList[$this->type] : NULL;
+        return $this->typeList[$this->type] ?? '';
     }
 
     public function getTypeWidgetList()
     {
         return [
-            static::TYPE_STRING => StringField::className(),
-            static::TYPE_TEXT => TextField::className(),
-            static::TYPE_HTML => HTMLField::className(),
-            static::TYPE_SWITCH => SwitchField::className(),
-            static::TYPE_DATE_TIME => DateTimeField::className(),
-            static::TYPE_ARRAY => ArrayField::className(),
+            static::TYPE_STRING => StringField::class,
+            static::TYPE_TEXT => TextField::class,
+            static::TYPE_HTML => HTMLField::class,
+            static::TYPE_SWITCH => SwitchField::class,
+            static::TYPE_DATE_TIME => DateTimeField::class,
+            static::TYPE_ARRAY => ArrayField::class,
         ];
     }
 
-    public function getTypeWidgetClassName()
+    public function getTypeWidgetClassName(): string
     {
-        return isset($this->typeWidgetList[$this->type]) ? $this->typeWidgetList[$this->type] : NULL;
+        return $this->typeWidgetList[$this->type] ?? '';
     }
 
     public function getTypeWidget($view, $form)
     {
-        if(!is_null($C = $this->typeWidgetClassName)){
+        if(!empty($C = $this->typeWidgetClassName)){
             return $C::widget([
-                'view' => $view,
-                'form' => $form,
+                'view'  => $view,
+                'form'  => $form,
                 'model' => $this,
             ]);
         }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -22,12 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             [
                 'attribute' => 'type',
-                'value' => $model->typeName,
+                'value'     => $model->typeName,
             ],
             [
                 'attribute' => 'value',
-                'format' => 'raw',
-                'value' => print_r($model->value, TRUE),
+                'format'    => 'raw',
+                'value'     => print_r($model->value, true),
             ],
         ],
     ]); ?>

@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace settings\widgets;
 
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 
 class TextField extends Widget
 {
@@ -14,7 +14,7 @@ class TextField extends Widget
 
     public function run()
     {
-        return $this->form->field($this->model, $this->attribute)->textarea(['maxlength' => TRUE, 'rows' => 12, ]);
+        return $this->form->field($this->model, $this->attribute)->textarea(['maxlength' => true, 'rows' => 12]);
     }
 
 }
